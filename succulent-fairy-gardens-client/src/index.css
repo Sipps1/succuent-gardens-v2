@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* Claymorphism & Custom Styles derived from original */
+  .clay-soft {
+    @apply bg-white rounded-2xl transition-all duration-300 border border-white/50;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.05), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  }
+  .clay-soft:hover {
+    @apply -translate-y-1;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.08), -10px -10px 20px rgba(255, 255, 255, 1);
+  }
+
+  .fairy-button {
+    @apply inline-flex items-center gap-2 bg-pink-600 text-white rounded-full font-semibold transition-all duration-300 border-none cursor-pointer;
+    box-shadow: 3px 3px 8px rgba(219, 39, 119, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.9);
+  }
+  .fairy-button:hover {
+    @apply bg-pink-700 -translate-y-0.5;
+    box-shadow: 5px 5px 12px rgba(219, 39, 119, 0.4), -3px -3px 8px rgba(255, 255, 255, 0.9);
+  }
+
+  .green-button {
+    @apply bg-green-600;
+    box-shadow: 3px 3px 8px rgba(22, 163, 74, 0.3), -3px -3px 8px rgba(255, 255, 255, 0.9);
+  }
+  .green-button:hover {
+    @apply bg-green-700;
+    box-shadow: 5px 5px 12px rgba(22, 163, 74, 0.4), -3px -3px 8px rgba(255, 255, 255, 0.9);
+  }
+
+  .btn {
+    @apply fairy-button px-6 py-3;
+  }
+  .btn-secondary {
+    @apply green-button;
+  }
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 shadow-none text-white px-4 py-2 rounded-full;
+  }
+
+  .form-control {
+    @apply w-full p-3 border border-gray-200 rounded-2xl text-base bg-white focus:outline-none focus:ring-2 focus:ring-pink-500;
+    box-shadow: inset 5px 5px 10px #f0f0f0, inset -5px -5px 10px #ffffff;
+  }
+
+  .admin-table {
+    @apply w-full border-collapse mt-4 bg-white rounded-2xl overflow-hidden shadow-lg;
+  }
+  .admin-table th {
+    @apply bg-gray-50 text-pink-600 p-3 text-left font-serif;
+  }
+  .admin-table td {
+    @apply p-3 border-b border-gray-100 text-gray-700;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  .float-element {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes sway {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+  }
+  .sway-element {
+    animation: sway 4s ease-in-out infinite;
+  }
+  
+  .text-shadow-custom {
+    text-shadow: 3px 3px 0px rgba(184, 230, 184, 0.3);
+  }
+}
+
+body {
+  @apply bg-white text-gray-700 m-0 antialiased font-sans;
+}
+
+h1, h2, h3, h4 {
+  @apply font-serif;
+}
