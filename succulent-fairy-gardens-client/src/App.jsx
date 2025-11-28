@@ -16,23 +16,28 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col bg-white">
         <Header />
-        <main className="container mx-auto px-4 py-4 relative z-10 flex-grow max-w-[1200px]">
+        {/* Removed global container constraints to allow full-width backgrounds */}
+        <main className="relative z-10 flex-grow w-full">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/shop" element={<ShopPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
+            {/* You may want to add 'container mx-auto px-4' to these individual pages 
+                if you want them centered, now that the global constraint is gone. */}
+            <Route path="/shop" element={<div className="container mx-auto px-4"><ShopPage /></div>} />
+            <Route path="/cart" element={<div className="container mx-auto px-4"><CartPage /></div>} />
+            <Route path="/checkout" element={<div className="container mx-auto px-4"><CheckoutPage /></div>} />
             <Route
               path="/order-confirmation"
-              element={<OrderConfirmationPage />}
+              element={<div className="container mx-auto px-4"><OrderConfirmationPage /></div>}
             />
             {/* Admin Routes */}
-            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/login" element={<div className="container mx-auto px-4"><AdminLogin /></div>} />
             <Route
               path="/admin/*"
               element={
                 <AdminRoute>
-                  <AdminDashboard />
+                  <div className="container mx-auto px-4">
+                    <AdminDashboard />
+                  </div>
                 </AdminRoute>
               }
             />
